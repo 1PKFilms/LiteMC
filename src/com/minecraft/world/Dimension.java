@@ -8,7 +8,7 @@ import com.jme3.light.AmbientLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Node;
 import com.jme3.util.SkyFactory;
-import com.minecraft.Data.Contend.ContendManager;
+import com.minecraft.Data.Content.ContentManager;
 import com.minecraft.world.Block.Block;
 import com.minecraft.world.Sky.Sun;
 import com.minecraft.world.Util.PositionUtil;
@@ -24,7 +24,7 @@ public class Dimension extends Node{
      public Dimension(int id){
         this.id = id;
       attachChild(SkyFactory.createSky(
-            ContendManager.getInstance().getAssetManager(), "Textures/enviroment/BrightSky.dds", false));        addLight(new Sun());
+            ContentManager.getInstance().getAssetManager(), "Textures/enviroment/BrightSky.dds", false));        addLight(new Sun());
          AmbientLight al = new AmbientLight();
          al.setColor(ColorRGBA.White.mult(0.6f));
          addLight(al);

@@ -19,8 +19,8 @@ import com.jme3.renderer.RenderManager;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
-import com.minecraft.Data.Contend.ContendManager;
-import com.minecraft.Data.Contend.Vanilla;
+import com.minecraft.Data.Content.ContentManager;
+import com.minecraft.Data.Content.Vanilla;
 import com.minecraft.world.Block.Block;
 import com.minecraft.world.Block.Glass;
 import com.minecraft.world.Chunk;
@@ -48,11 +48,11 @@ public class Minecraft extends SimpleApplication {
     public void simpleInitApp() {
         flyCam.setMoveSpeed(2);    /** Translucent/transparent cube. Uses Texture from jme3-test-data library! */
 
-                ContendManager.getInstance().setAssetManager(assetManager);
+                ContentManager.getInstance().setAssetManager(assetManager);
                 Block.assetManager = assetManager;
-                ContendManager.getInstance().registerContend(new Vanilla());
+                ContentManager.getInstance().registerContend(new Vanilla());
                 //TODO: Modloading
-                ContendManager.getInstance().init();
+                ContentManager.getInstance().init();
 
                 rootNode.attachChild(new World(assetManager));
     }
