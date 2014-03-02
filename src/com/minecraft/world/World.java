@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.util.SkyFactory;
+import com.minecraft.Data.Content.ContentManager;
 import com.minecraft.world.Block.Glass;
 import com.minecraft.world.Sky.Sun;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -21,20 +20,20 @@ import java.util.logging.Logger;
  */
 public class World  extends Node{
     private Dimension current;
+    private boolean  hardcore;
     private int time;
     private AssetManager assetManager;
-    public World(AssetManager assetManager){
-        this.assetManager = assetManager;
- 
-         creatLocalTestWorld();/* this shadow needs a directional light */
+    public World(boolean hardcore){
+        this.assetManager = ContentManager.getInstance().getAssetManager();
+        this.hardcore = hardcore;
 
  
     }
     public void creatLocalTestWorld(){
         
            Dimension dim = new Dimension(0);
-                Region    reg1 = new Region(0, 0);
-                Region    reg2 = new Region(1, 0);
+                Region    reg1 = new Region(0, 0,dim);
+                Region    reg2 = new Region(1, 0,dim);
                 
                 dim.loadRegion(reg1);
                 dim.loadRegion(reg2);
@@ -82,4 +81,7 @@ public class World  extends Node{
             ex.printStackTrace();
         }
     }
+     public Dimension getDimension(){
+         return current;
+     }
 }

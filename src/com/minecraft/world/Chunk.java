@@ -19,6 +19,7 @@ public class Chunk extends Node{
     private long LastUpdate;
     //loaded (not empty sections)
     private Section[] section = new Section[16];
+    private byte[][]   biomeID  = new byte[16][16];
     /*
      * TODO: Entitys and TileEntitys
      */
@@ -36,6 +37,20 @@ public class Chunk extends Node{
         
         
     }
+      public void unload(int y){
+        if(section[y] != null)section[y].removeFromParent();
+        section[y] = null;
+          System.gc();
+
+        
+        
+    }
+      public byte getBiomeID(int x,int z){
+          return biomeID[x][z];
+      }
+      public void setBiomeID(int x,int z,byte BiomeID){
+          biomeID[x][z] = BiomeID;
+      }
         
         public Section get(int id){
             return this.section[id];
@@ -47,10 +62,11 @@ public class Chunk extends Node{
             return zPos;
         }
         
-
+    
     @Override
     public String toString() {
        return "Chunck at "+xPos+" "+zPos+" in "+parent.toString();
     }
+    
     
 }

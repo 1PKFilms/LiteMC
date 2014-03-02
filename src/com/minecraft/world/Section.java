@@ -29,22 +29,18 @@ public class Section extends Node{
             return id;
         }
     public void set(Block block,int x,int y,int z){
-            block.setX(x);
-            block.setY(y);
-            block.setZ(z);
+            
             Block current =  blocks[x%16][y%16][z%16];
             if(current  != null)current.removeFromParent();;
-            if( block != null) this.attachChild(block);
+            if( block != null) block.addToWorld(x, y, z);
             blocks[x%16][y%16][z%16] = block;
      
 
     
         
     }
-    public void set(Block block){
-        if(block == null)throw new IllegalArgumentException("block musn't be null. If you want to remove a Block please use set(block,x,y,z)");
-        set(block, (int)block.getX(), (int)block.getY(),(int) block.getZ());
-    }
+    
+    
     public Block get(int x,int y,int z){
        return blocks[x][y][z];
     }

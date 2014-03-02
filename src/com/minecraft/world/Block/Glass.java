@@ -18,7 +18,7 @@ import com.jme3.texture.Texture;
 public class Glass extends Block{
     public static Texture glassTexture;
     public Glass(){
-        super(20,glassTexture);
+        super((short)20,glassTexture);
         Material tmp = getMaterial();
         this.setQueueBucket(Bucket.Transparent);
         tmp.getAdditionalRenderState().setBlendMode(RenderState.BlendMode.Alpha);
