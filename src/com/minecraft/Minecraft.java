@@ -39,8 +39,8 @@ import java.util.logging.Logger;
  * @author normenhansen
  */
 public class Minecraft extends SimpleApplication {
-    public static final String USERNAME = "1PKFilms";
-    public static final String PASSWORD = "feuerwehr11";
+    public static final String USERNAME = "MCUSER";
+    public static final String PASSWORD = "MCPASSWD";
     public static void main(String[] args) {
         Minecraft mc = new Minecraft();
         mc.start();
